@@ -10,6 +10,14 @@ function makeEmptyGrid() {
   )
 }
 
+function paint(row, column) {
+  const temp = grid.map(r => r.slice())
+
+  temp[row][col] = currentColor
+
+  setGrid(temp)
+}
+
 function App() {
   const [grid, setGrid] = useState(makeEmptyGrid)
 
@@ -30,6 +38,7 @@ function App() {
             className="pixel"
             style={{ background: color }}
             aria-label={`Pixel ${r}, ${c}`}
+            onClick={() => paint(r, c)}
           />
         ))
       )}
