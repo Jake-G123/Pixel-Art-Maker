@@ -50,7 +50,7 @@ function App() {
           aria-label={`Color ${c}`}
         />
       ))}
-    </div> 
+    </div>
 
     <div
       className="pixel-grid"
@@ -68,6 +68,7 @@ function App() {
         ))
       )}
     </div>
+    <button onClick={() => clearGrid}>Clear</button>
   </div>
   )
 }
