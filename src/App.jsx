@@ -1,13 +1,22 @@
 import { useState } from 'react'
 
 const GRID_SIZE = 16
-const DEFAULT_COLOR = '#ffffff' // white = unpainted
+const DEFAULT_COLOR = '#ffffff'
+
+const PRESETS = [
+  '#000000', '#ffffff', '#e63946', '#f1a208', '#ffd166',
+  '#06d6a0', '#118ab2', '#7209b7', '#f72585', '#ff8500',
+]
 
 function makeEmptyGrid() {
   return Array.from(
     { length: GRID_SIZE },
     () => Array(GRID_SIZE).fill(DEFAULT_COLOR)   
   )
+}
+
+function clearGrid() {
+  setgrid(makeEmptyGrid())
 }
 
 function paint(row, column) {
