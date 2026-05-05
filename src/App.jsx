@@ -26,6 +26,10 @@ function App() {
   return (
     <div className="pixel-art">
     <h1>Pixel Art Editor</h1>
+    <label className="pixel-tools">
+      Color
+      <input type="color" value={currentColor} onCHange={e => setCurrentColor(e.target.value)} />
+    </label>
 
     <div
       className="pixel-grid"
