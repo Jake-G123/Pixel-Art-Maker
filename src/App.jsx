@@ -19,14 +19,6 @@ function clearGrid() {
   setgrid(makeEmptyGrid())
 }
 
-function paint(row, column) {
-  const temp = grid.map(r => r.slice())
-
-  temp[row][column] = currentColor
-
-  setGrid(temp)
-}
-
 function App() {
   const [grid, setGrid] = useState(makeEmptyGrid)
 
