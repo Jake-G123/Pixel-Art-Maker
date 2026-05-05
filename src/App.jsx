@@ -15,7 +15,27 @@ function App() {
 
   const [currentColor, setCurrentColor] = useState('#1a1a1a')
 
-  return <div></div>
+  return (
+    <div className="pixel-art">
+    <h1>Pixel Art Editor</h1>
+
+    <div
+      className="pixel-grid"
+      style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)` }}
+    >
+      {grid.map((row, r) =>
+        row.map((color, c) => (
+          <button
+            key={`${r}-${c}`}
+            className="pixel"
+            style={{ background: color }}
+            aria-label={`Pixel ${r}, ${c}`}
+          />
+        ))
+      )}
+    </div>
+  </div>
+  )
 }
 
 export default App
