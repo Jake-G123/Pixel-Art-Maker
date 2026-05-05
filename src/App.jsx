@@ -13,7 +13,7 @@ function makeEmptyGrid() {
 function paint(row, column) {
   const temp = grid.map(r => r.slice())
 
-  temp[row][col] = currentColor
+  temp[row][column] = currentColor
 
   setGrid(temp)
 }
