@@ -40,6 +40,18 @@ function App() {
       <input type="color" value={currentColor} onChange={e => setCurrentColor(e.target.value)} />
     </label>
 
+    <div className="pixel-presets">
+      {PRESETS.map(c => (
+        <button
+          key={c}
+          className={'preset' + (c === currentColor ? ' selected' : '')}
+          style={{ background: c }}
+          onClick={() => setCurrentColor(c)}
+          aria-label={`Color ${c}`}
+        />
+      ))}
+    </div> 
+
     <div
       className="pixel-grid"
       style={{ gridTemplateColumns: `repeat(${GRID_SIZE}, 1fr)` }}
