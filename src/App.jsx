@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 const GRID_SIZE = 16
 const DEFAULT_COLOR = '#ffffff'
+const EXPORT_SCALE = 20
 
 const PRESETS = [
   '#000000', '#ffffff', '#e63946', '#f1a208', '#ffd166',
@@ -31,6 +32,23 @@ function App() {
   const clearGrid = () => {
     setGrid(makeEmptyGrid)
   }
+
+  const exportPng = () => {
+  const canvas = document.createElement('canvas')
+  canvas.width = GRID_SIZE * EXPORT_SCALE
+  canvas.height = GRID_SIZE * EXPORT_SCALE
+  const ctx = canvas.getContext('2d')
+  for (let r = 0; r < GRID_SIZE; r++) {
+    for (let c = 0; c < GRID_SIZE; c++) {
+    ctx.fillStyle = grid[r][c]
+    ctx.fillRect(c * EXPORT_SCALE, r * EXPORT_SCALE, EXPORT_SCALE, EXPORT_SCALE)
+    }
+  }
+  const link = document.createElement('a')
+  link.download = 'pixel-art.png'
+  link.href = canvas.toDataURL('image/png')
+  link.click()
+}
 
   return (
     <div className="pixel-art">
@@ -69,6 +87,7 @@ function App() {
       )}
     </div>
     <button onClick={clearGrid}>Clear</button>
+    <button onClick={exportPng}>Export</button>
   </div>
   )
 }
