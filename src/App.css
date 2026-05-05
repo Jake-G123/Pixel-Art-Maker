@@ -37,6 +37,7 @@
 }
 
 .pixel-presets {
+  width: 42.8%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 6px;
