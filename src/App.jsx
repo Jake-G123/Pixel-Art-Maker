@@ -68,7 +68,7 @@ function App() {
         ))
       )}
     </div>
-    <button onClick={() => clearGrid}>Clear</button>
+    <button onClick={clearGrid}>Clear</button>
   </div>
   )
 }
