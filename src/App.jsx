@@ -15,10 +15,6 @@ function makeEmptyGrid() {
   )
 }
 
-function clearGrid() {
-  setgrid(makeEmptyGrid())
-}
-
 function App() {
   const [grid, setGrid] = useState(makeEmptyGrid)
 
@@ -30,6 +26,10 @@ function App() {
     temp[row][column] = currentColor
 
     setGrid(temp)
+  }
+
+  const clearGrid = () => {
+    setGrid(makeEmptyGrid)
   }
 
   return (
