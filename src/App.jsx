@@ -23,6 +23,14 @@ function App() {
 
   const [currentColor, setCurrentColor] = useState('#1a1a1a')
 
+  const paint = (row, column) => {
+    const temp = grid.map(r => r.slice())
+
+    temp[row][column] = currentColor
+
+    setGrid(temp)
+  }
+
   return (
     <div className="pixel-art">
     <h1>Pixel Art Editor</h1>
