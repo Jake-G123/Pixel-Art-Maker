@@ -62,7 +62,7 @@ function App() {
       {PRESETS.map(c => (
         <button
           key={c}
-          className={'preset' + (c == currentColor ? ' selected' : '')}
+          className={'preset' + (c === currentColor ? ' selected' : '')}
           style={{ background: c }}
           onClick={() => setCurrentColor(c)}
           aria-label={`Color ${c}`}
@@ -81,7 +81,7 @@ function App() {
             className="pixel"
             style={{ background: color }}
             aria-label={`Pixel ${r}, ${c}`}
-            onClick={() => paint(r, c)}
+            onClick={paint(r, c)}
           />
         ))
       )}
