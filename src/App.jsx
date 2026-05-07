@@ -16,6 +16,10 @@ function makeEmptyGrid() {
   )
 }
 
+function clearGrid() {
+    setGrid(makeEmptyGrid)
+  }
+
 function App() {
   const [grid, setGrid] = useState(makeEmptyGrid)
 
@@ -29,10 +33,6 @@ function App() {
     setGrid(temp)
   }
 
-  const clearGrid = () => {
-    setGrid(makeEmptyGrid)
-  }
-
   const exportPng = () => {
   const canvas = document.createElement('canvas')
   canvas.width = GRID_SIZE * EXPORT_SCALE
@@ -40,7 +40,7 @@ function App() {
   const ctx = canvas.getContext('2d')
   for (let r = 0; r < GRID_SIZE; r++) {
     for (let c = 0; c < GRID_SIZE; c++) {
-    ctx.fillStyle = grid[r][c]
+    ctx.fillStyle = grid[c][r]
     ctx.fillRect(c * EXPORT_SCALE, r * EXPORT_SCALE, EXPORT_SCALE, EXPORT_SCALE)
     }
   }
@@ -62,7 +62,7 @@ function App() {
       {PRESETS.map(c => (
         <button
           key={c}
-          className={'preset' + (c === currentColor ? ' selected' : '')}
+          className={'preset' + (c == currentColor ? ' selected' : '')}
           style={{ background: c }}
           onClick={() => setCurrentColor(c)}
           aria-label={`Color ${c}`}
